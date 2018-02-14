@@ -54,6 +54,7 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+        var running = false;
         function typeWriter(text, n) {
             if (n < (text.length)) {
                 $('.secret_message').html(text.substring(0, n + 1) + "❤");
@@ -62,12 +63,18 @@
                     typeWriter(text, n)
                 }, 100);
             }
+            else {
+                running = false;
+            }
         }
 
         $('.start').click(function (e) {
             e.stopPropagation();
-            var text = $('.secret_message').data('text');
-            typeWriter(text, 0);
+            if (running == false) {
+                var text = $('.secret_message').data('text');
+                running = true;
+                typeWriter(text, 0);
+            }
         });
     </script>
 </body>
