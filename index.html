@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Happy Valentine's day!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Cutive+Mono);
+
+        body {
+            font: 16px/20px 'Cutive Mono', serif;
+        }
+
+        a {
+            color: #222;
+        }
+
+        .wrap {
+            width: 420px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .secret_message {
+            margin-top: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrap">
+            <a href="#" class="start">click here to start</a>
+            <div class="secret_message" data-text="Hey {{her_name}},<br>
+                <center><strong>Happy Valentine's Day!</strong></center><br>
+                You are awesome, you know that right?<br>
+                But...Here are <strong> 13 reasons why I like you</strong><br><br>
+                Disclaimer: List is in no perfect order<br><br>
+                <strong>13 reasons why I like you?</strong><br>
+                <ul><li>You are awesome!</li>
+                    <li>You are cute :P</li>
+                    <li>You are beautiful :P</li>
+                    <li>You are smart :D</li>
+                    <li>You are intelligent :D</li>
+                    <li>You code &#x1F5B3</li>
+                    <li>You are sexy &#59;)</li>
+                    <li>You are a foodie &#x1F355&#x1F354&#x1F344</li>
+                    <li>You are caring :D</li>
+                    <li>Aap bandar ho &#x1F412</li>
+                    <li>You can figure out why I have written 13 but mentioned 11 points!</li></ul><br>
+                I hope you will like this :)
+                <div align='right'><strong>- x4150</strong></div>"></div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function typeWriter(text, n) {
+            if (n < (text.length)) {
+                $('.secret_message').html(text.substring(0, n + 1) + "❤");
+                n++;
+                setTimeout(function () {
+                    typeWriter(text, n)
+                }, 100);
+            }
+        }
+
+        $('.start').click(function (e) {
+            e.stopPropagation();
+            var text = $('.secret_message').data('text');
+            typeWriter(text, 0);
+        });
+    </script>
+</body>
+</html>
